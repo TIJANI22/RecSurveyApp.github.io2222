@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!--from fontawesome-->
+    <script src="https://kit.fontawesome.com/1585dc4e54.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="cors.css">
+    <title>CORS</title>
+    
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="#" class= "nav-branding" ><span class="red">Beacon</span><span class="gold">Sur</span><span class="green">vey</span></a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+</body>
+<script src="index.js"></script>
+
+<main>    
+    <div class="flex-container">
+        <div class="item1", id='map'>
+    <script>
+            function initMap(){
+                var options = {
+                    zoom:7.0, 
+                    center: {lat:7.994775, lng:-1.109184}
+                }
+                var map = new 
+                google.maps.Map(document.getElementById('map'), options);
+
+                //CORS COORDINATES
+                //SGV.CORS/2020/1
+                addMarker({coords:{lat:6.6092600,lng:0.4603820},iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',content:"<h3>SGV.CORS/2020/1</h3>"}); 
+
+                //SGE.CORS/2020/2
+                 addMarker({coords:{lat:6.1092690,lng:-0.3023180},iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',content:"<h3>SGE.CORS/2020/2</h3>"}); 
+
+                 //SGUE.BOL/CORS/2020/1
+                 addMarker({coords:{lat:10.7969210,lng:-0.8570590},iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',content:"<h3>SGUE.BOL/CORS/1</h3>"});
+
+                 //TAML/CORS
+                 addMarker({coords:{lat:9.4040610,lng:-0.8334610},iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',content:"<h3>TAML.CORS</h3>"});
+
+                 //SGA.CORS/2020/3
+                 addMarker({coords:{lat:6.6879510,lng:-1.6252260},iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',content:"<h3>SGA.CORS/2020/3</h3>"});
+               
+                //SGE.CORS/2020/4
+                addMarker({coords:{lat:5.9262010,lng:-0.9863890},iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',content:"<h3>SGE.CORS/2020/4</h3>"});
+
+                //SGW.CORS/2020/5
+                addMarker({coords:{lat:4.9254640,lng:-1.7740620},iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',content:"<h3>SGE.CORS/2020/5</h3>"});
+
+                //SGW.CORS/2020/6
+                addMarker({coords:{lat:5.2976810,lng:-2.0000410},iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',content:"<h3>SGE.CORS/2020/6</h3>"});
+
+                //SGW.CORS/2020/7
+                addMarker({coords:{lat:5.3606000,lng:-0.6331920},iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',content:"<h3>SGE.CORS/2020/7</h3>"});
+
+                 //GCP COORDINATES
+           // addMarker({coords:{lat:5.1128910,lng:-1.2434330},
+           // content:"<h3>SGC E443/11/3</h3>"});
+
+                //ADD BEACH MARKER
+                function addMarker(props){
+                    var marker = new google.maps.Marker({
+                position:props.coords,
+                map:map,  
+                /*icon:props.iconImage */          
+            });   
+
+            //check customicon
+            if (props.iconImage){
+                //sett icon image
+                marker.setIcon(props.iconImage);
+            }
+            //CONTENT INFO
+            if (props.content){
+                var infoWindow = new google.maps.InfoWindow({
+                    content: props.content 
+                });
+
+                marker.addListener('click', function(){
+                 infoWindow.open(map, marker);   
+                });    
+            }
+
+            }
+                 
+            }                  
+            </script>
+
+<script async
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3OMofyoQBZ-o4sXmRyFH625VH-8d6Zhs&callback=initMap"> 
+</script>  
+    </div>
+        
+    <!--<div class="item2">
+        <div class="section search">
+            
+            <form action="index.html" method="post">
+       <input type="text" name="search-term" class="text-input" placeholder="Search (Enter Beacon ID)......">
+            </form>
+        <div class="section-Regions"> -->
+            <div class="app-container">
+                <h1>Search (Enter Beacon ID)</h1>
+                <div id="portexe-search-root"></div>
+                <div id="portexe-table-container">
+                <table id="portexe-data-table">
+                <thead>
+                    <tr>
+                      <th>Beacon ID</th>
+                      <th>Northing(X)</th>
+                      <th>Easting(Y)</th>
+                  </tr>
+                </thead>
+            <tbody>
+              <tr>
+                      <th colspan="3">HO</th>
+                  </tr>
+                  <tr> 
+                  <td>SGV.CORS/2020/1</td>
+                  <td>704374.684</td>
+                  <td>1429667.308</td>
+              </tr>
+
+
+              <tr>
+                  <th colspan="3">KOFORIDUA</th>
+              </tr>
+              <tr>
+                  <td>SGE.CORS/2020/2</td>
+                  <td>522398.945</td>
+                  <td>1153213.880</td>
+              </tr>
+
+              <tr>
+                <th colspan="3">AKIM-ODA</th>
+            </tr>
+            <tr>
+                <td>SGE.CORS/2020/4</td>
+                <td>455831.538</td>
+                <td>904842.406</td>
+            </tr>
+            </tr>
+
+              <tr>
+                  <th colspan="3">BOLGATANGA</th>
+              </tr>
+              <tr>
+                  <td>SGUE.BOL/CORS/1</td>
+                  <td>2222780.230</td>
+                  <td>951173.610</td>
+              </tr>
+
+
+              <tr>
+                  <th colspan="3">TAMALE</th>
+              </tr>
+              <tr>
+                  <td>TAML. CORS</td>
+                  <td>1717451.990</td>
+                  <td>959895.970</td>
+              </tr>
+
+              <tr>
+                  <th colspan="3">KUMASI</th>
+              </tr>
+              <tr>
+                  <td>SGA.CORS/2020/3</td>
+                  <td>732285.928</td>
+                  <td>673148.096</td>
+              </tr>
+              </tr>
+              
+
+              <tr>
+                  <th colspan="3">TAKORADI</th>
+              </tr>
+              <tr>
+                  <td>SGW.CORS/2020/5</td>
+                  <td>93007.418</td>
+                  <td>618293.344</td>
+              </tr>
+              </tr>
+
+
+              <tr>
+                  <th colspan="3">TARKWA</th>
+              </tr>
+              <tr>
+                  <td>SGW.CORS/2020/6</td>
+                  <td>228146.159</td>
+                  <td>536284.132</td>
+              </tr>
+              </tr>
+
+              <tr>
+                  <th colspan="3">WINNEBA</th>
+              </tr>
+              <tr>
+                  <td>SGC.CORS/2020/7</td>
+                  <td>250715.197</td>
+                  <td>1033251.402</td>
+              </tr>
+              </tr>
+            </tbody> 
+        </div>    
+
+     
+         <script>
+             let filterInput = document.getElementById('filterInput');
+                filterInput.addEventListener('keyup', filterNames);
+     
+                 function filterNames(){
+                 
+                 let filterValue = document.getElementById('filterInput').value.toUpperCase();
+                 
+                 let ul = document.getElementById('names');
+                 let li = ul.querySelectorAll('li.region-name');
+                 //loop through the names-regions list
+                 for(let i = 0;i <li.length;i++){
+                     let a = li[i].getElementsByTagName('a')[0];
+                     //if matched
+                 if (a.innerHTML.toUpperCase().indexOf(filterValue) > -1){
+                     li[i].style.display = '';}
+                     else{
+                         li[i].style.display = 'none';
+                     }
+                 }
+                 }
+         </script> 
+     
+     <script>
+        const tableData = () => {
+        const searchData = [];
+        const tableEl = document.getElementById('portexe-data-table');
+        Array.from(tableEl.children[1].children).forEach(_bodyRowEl => {
+            searchData.push(Array.from(_bodyRowEl.children).map(_cellEl => {
+                    return _cellEl.innerHTML;
+                }));
+            });
+            return searchData;
+        }
+        
+    const createSearchInputElement = () => {
+        const el = document.createElement('input');
+        el.classList.add('portexe-search-input');
+        el.id = 'portexe-search-input'; 
+        return el;
+    }
+    
+    const search =(arr, searchTerm) => {
+        if(!searchTerm) return arr;
+        return arr.filter(_row => {
+            return _row.find(_item => _item.toLowerCase().includes(searchTerm.toLowerCase()));
+        });
+    }
+    
+    const refreshTable = (data) =>{
+        const tableBody = document.getElementById('portexe-data-table').children[1];
+        tableBody.innerHTML = ''; 
+        
+        data.forEach(_row => {
+            const curRow = document.createElement('tr');
+            _row.forEach(_dataItem => {
+            const curCell = document.createElement('td');
+            curCell.innerText = _dataItem;
+            curRow.appendChild(curCell);
+            });
+            tableBody.appendChild(curRow);
+            });
+            }
+                
+    const init = () =>{
+    document.getElementById('portexe-search-root')
+    .appendChild(createSearchInputElement());
+    
+    
+    const initialTableData = tableData();
+    
+    
+    const searchInput = document.getElementById('portexe-search-input');
+        searchInput.addEventListener('keyup', (e) => {
+        refreshTable(search(initialTableData, e.target.value));
+        });
+    }
+    init();
+    
+    </script>
+</main>
+
+    <footer>
+        <div class="footer">
+            <h2>
+                <span class="red">Rec</span><span class="gold">Sur</span><span class="green">vey</span> <i>copyright &copy; <script>document.write(new Date().getFullYear())</script></i>
+            </h2> 
+        </div>        
+    </footer>
+
+    </html>
+     
